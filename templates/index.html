@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Weather Forecasting System</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static',
+          filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<div class="overlay">
+
+    <!-- NAVBAR -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            🌦️ Weather AI
+        </div>
+
+        <div class="nav-title">
+            Weather Forecasting System
+        </div>
+
+    </nav>
+
+
+    <!-- MAIN -->
+
+    <main class="container">
+
+        <section class="hero">
+
+            <h1>
+                Weather Forecasting
+            </h1>
+
+            <p>
+                Real-time weather monitoring and
+                machine learning prediction
+            </p>
+
+
+            <!-- SEARCH -->
+
+            <div class="search-box">
+
+                <input
+                    type="text"
+                    id="cityInput"
+                    placeholder="Enter city name..."
+                    autocomplete="off"
+                >
+
+                <button onclick="getWeather()">
+                    Search
+                </button>
+
+            </div>
+
+            <div id="error"
+                 class="error">
+            </div>
+
+        </section>
+
+
+        <!-- CURRENT WEATHER -->
+
+        <section id="weatherSection"
+                 class="weather-section hidden">
+
+            <div class="location">
+
+                <h2 id="cityName">
+                    City
+                </h2>
+
+                <p id="weatherDescription">
+                    Weather
+                </p>
+
+            </div>
+
+
+            <div class="main-weather">
+
+                <div class="temperature">
+
+                    <span id="temperature">
+                        --
+                    </span>
+
+                    <span>°C</span>
+
+                </div>
+
+                <img id="weatherIcon"
+                     src=""
+                     alt="Weather">
+
+            </div>
+
+
+            <!-- CARDS -->
+
+            <div class="cards">
+
+
+                <div class="card">
+
+                    <div class="card-icon">
+                        💧
+                    </div>
+
+                    <h3>
+                        Humidity
+                    </h3>
+
+                    <p>
+                        <span id="humidity">
+                            --
+                        </span>%
+                    </p>
+
+                </div>
+
+
+                <div class="card">
+
+                    <div class="card-icon">
+                        🌡️
+                    </div>
+
+                    <h3>
+                        Feels Like
+                    </h3>
+
+                    <p>
+                        <span id="feelsLike">
+                            --
+                        </span>°C
+                    </p>
+
+                </div>
+
+
+                <div class="card">
+
+                    <div class="card-icon">
+                        🎈
+                    </div>
+
+                    <h3>
+                        Pressure
+                    </h3>
+
+                    <p>
+                        <span id="pressure">
+                            --
+                        </span> hPa
+                    </p>
+
+                </div>
+
+
+                <div class="card">
+
+                    <div class="card-icon">
+                        💨
+                    </div>
+
+                    <h3>
+                        Wind
+                    </h3>
+
+                    <p>
+                        <span id="wind">
+                            --
+                        </span> m/s
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- AI PREDICTION -->
+
+            <div class="prediction">
+
+                <h2>
+                    🤖 AI Temperature Prediction
+                </h2>
+
+                <p>
+                    Predicted next temperature:
+                </p>
+
+                <div id="predictionValue">
+                    --
+                </div>
+
+                <button onclick="predictWeather()">
+                    Predict With AI
+                </button>
+
+            </div>
+
+
+            <!-- FORECAST -->
+
+            <div class="forecast-container">
+
+                <h2>
+                    📅 5-Day Forecast
+                </h2>
+
+                <div id="forecast"
+                     class="forecast-grid">
+                </div>
+
+            </div>
+
+
+            <!-- HISTORY -->
+
+            <div class="history">
+
+                <h2>
+                    📊 Recent Searches
+                </h2>
+
+                <button onclick="loadHistory()">
+                    Load History
+                </button>
+
+                <div id="historyTable">
+                </div>
+
+            </div>
+            <div class="history">
+    <h2>📊 Recent Searches</h2>
+
+    <button onclick="loadHistory()">
+        Load History
+    </button>
+
+    <button onclick="clearHistory()">
+        Clear History
+    </button>
+
+    <div id="historyTable"></div>
+   </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        <p>
+            Weather AI Forecasting System
+            © 2026
+        </p>
+
+    </footer>
+
+</div>
+
+
+<script src="{{ url_for('static',
+filename='js/script.js') }}">
+</script>
+
+</body>
+
+</html>
